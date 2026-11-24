@@ -45,7 +45,7 @@ router.patch("/:id", asyncHandler(async (req: AuthRequest,res) => {
   if (!parsed.success || Object.keys(req.body || {}).length === 0) return res.status(400).json({ message: "Invalid product update" });
   const keys = allowed.filter(k => Object.prototype.hasOwnProperty.call(parsed.data,k));
   if (keys.length === 0) return res.status(400).json({ message: "No supported product fields supplied" });
-  const values: unknown[] = keys.map(k => (parsed.data as any)[k]);
+  const values: any[] = keys.map(k => (parsed.data as any)[k]);
   const setClause = keys.map((k,i) => k + "=$" + (i+3)).join(",");
   values.push(req.params.id,req.auth!.organizationId);
   try {
