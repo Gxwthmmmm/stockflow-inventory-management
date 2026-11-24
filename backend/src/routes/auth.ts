@@ -15,7 +15,7 @@ const signupSchema = z.object({
 const loginSchema = z.object({ email: z.string().trim().email().max(255), password: z.string().min(1).max(72) });
 function makeToken(userId: string, organizationId: string) {
   return jwt.sign({ org: organizationId }, process.env.JWT_SECRET!, {
-    subject: userId, expiresIn: process.env.JWT_EXPIRES_IN || "1d"
+    subject: userId, expiresIn: (process.env.JWT_EXPIRES_IN || "1d") as jwt.SignOptions["expiresIn"]
   });
 }
 
