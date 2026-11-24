@@ -18,11 +18,10 @@ React, TypeScript, Vite, Node.js, Express, PostgreSQL, Zod, JWT, bcryptjs.
 Requirements: Node.js 20+ and PostgreSQL.
 
 1. Create a PostgreSQL database named stockflow_db.
-2. Run backend/src/db/schema.sql against that database.
-3. In backend, copy .env.example to .env and set DATABASE_URL and a random JWT_SECRET of at least 32 characters.
-4. Run: npm install && npm run dev (from backend).
-5. In frontend, run: npm install && npm run dev.
-6. Open the Vite URL (normally http://localhost:5173).
+2. In backend, copy .env.example to .env and set DATABASE_URL and a random JWT_SECRET of at least 32 characters.
+3. Run: npm install && npm run dev (from backend). The API applies the idempotent schema on startup.
+4. In frontend, run: npm install && npm run dev.
+5. Open the Vite URL (normally http://localhost:5173).
 
 API health check: GET http://localhost:5000/api/health
 
